@@ -10,7 +10,7 @@
             <div class="log-logo">Welcome!</div>
             <div class="log-text">@CloudXi</div>
         </div>
-        <div class="log-email">
+        <div class="log-email"> 
           <input type="text" placeholder="Email" v-model="account" :class="'log-input' + (account==''?' log-input-empty':'')">
           <input type="password" placeholder="Password" v-model="password" :class="'log-input' + (password==''?' log-input-empty':'')">  
           <a href="javascript:;" class="log-btn" @click="login">Login</a>

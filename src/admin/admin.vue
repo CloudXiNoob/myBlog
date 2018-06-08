@@ -2,7 +2,7 @@
     <div>
         <el-row>
             <el-menu theme="dark" :default-active="$router.path" class="el-menu" mode="horizontal" :router="false">
-                <el-menu-item index="1" @click="collapse">管理系统</el-menu-item>
+                <el-menu-item index="1">管理系统</el-menu-item>
                 <el-submenu index="2">
                     <template slot="title">我的工作台</template>
                     <el-menu-item index="2-1">选项1</el-menu-item>
@@ -44,25 +44,28 @@ export default {
             isCollapse:false,
         }
     },
-    watch:{
-        "$route":'checkLogin'
-    },
-    created(){
-        this.checkLogin()
-    },
+    // watch:{
+    //     "$route":'checkLogin'
+    // },
+    // created(){
+    //     this.checkLogin()
+    // },
     methods:{
-        collapse(){
-            this.isCollapse=!this.isCollapse
-        },
-        checkLogin(){
-            if(!this.getCookie('user')){
-                this.$router.push('/login')
-            }
-        }
+        // collapse(){
+        //     this.isCollapse=!this.isCollapse
+        // },
+        // checkLogin(){
+        //     if(!this.getCookie('user')){
+        //         this.$router.push('/login')
+        //     }
+        // }
     }
 }
 </script>
 <style lang="css">
+    #app{
+        margin-top: 0px;
+    }
     a{
         text-decoration:none;
     }
