@@ -1,26 +1,24 @@
 <template>
     <div class="login" id="login">
-        <a href="javascript:;" class="log-close"><i class="icons close"></i></a>
         <div class="log-bg">
             <div class="log-cloud cloud1"></div>
             <div class="log-cloud cloud2"></div>
             <div class="log-cloud cloud3"></div>
             <div class="log-cloud cloud4"></div>
-
-            <div class="log-logo">Welcome!</div>
+            <div class="log-logo">Welcome Login!</div>
             <div class="log-text">@CloudXi</div>
         </div>
         <div class="log-email"> 
-          <input type="text" placeholder="Email" v-model="account" :class="'log-input' + (account==''?' log-input-empty':'')">
-          <input type="password" placeholder="Password" v-model="password" :class="'log-input' + (password==''?' log-input-empty':'')">  
-          <a href="javascript:;" class="log-btn" @click="login">Login</a>
+            <input type="text" placeholder="请输入账号" v-model="account" :class="'log-input' + (account==''?' log-input-empty':'')">
+            <input type="password" placeholder="请输入密码" v-model="password" :class="'log-input' + (password==''?' log-input-empty':'')">  
+            <a href="javascript:;" class="log-btn" @click="login">登录</a>
         </div>
-        <Loading v-if="isLoging" marginTop="-30%"></Loading>
+        <loading v-if="isLoading" marginTop="-30%"></loading>
     </div>
 </template>
 
 <script>
-// import Loading from './loading.vue'
+import Loading from './loading.vue'
 import md5  from 'md5'
 import axios from 'axios'
 export default {
@@ -32,17 +30,22 @@ export default {
             password:''
         }
     },
-    // components:{
-    //     Loading
-    // },
+    components:{   //在login组件中使用loading组件
+        Loading
+    },
     methods:{
+        // 验证是否输入账号和密码
         login(){
             if(this.account!=''&&this.password!=''){
+               
                 this.toLogin();
+           }else{
+                alert("请输入账号和密码！");
            }
         },
         //登录请求
         toLogin(){
+            // md5加密
             let password=md5(this.password);
             let param={
                 account:this.account,
@@ -68,9 +71,6 @@ export default {
     .login{position:fixed;overflow: hidden;left: 50%;margin-left: -250px;top: 50%;margin-top: -350px;width: 500px;min-height:555px;-index: 10;
         right: 140px;background:#fff;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius: 5px;
         -webkit-box-shadow:0px 3px 16px -5px #070707;box-shadow: 0px 3px 16px -5px #070707;}
-    .log-close{display: block;position: absolute;top: 12px;right: 12px;opacity: 1;}
-    .log-close:hover .icons{transform: rotate(180deg);}
-    .log-close .icons{opacity: 1;transition: all .3s;}
     .log-cloud{background-image:url(/static/images/login-cloud.png);width:  63px;height: 40px;position: absolute;z-index: 1;}
     .login .cloud1{top: 21px;left: -30px;transform: scale(.6);animation:cloud1 20s linear infinite;}
     .login .cloud2{top: 87px;right: 20px ;animation:cloud2 19s linear infinite;}
@@ -81,11 +81,10 @@ export default {
     .log-text{color: #57d4c3;font-size: 13px;text-align: center; margin: 0 auto;}
     .log-logo .log-text{z-index: 2;}
     .icons{background: url(/static/images/icons.png) no-repeat;display: inline-block;}
-    .close{height: 16px;width: 16px;background-position: -13px 0;}
     .login-email{height: 17px;width: 29px;background-position: -117px 0;}
     .login-btns{padding: 15px 0;margin: 0 auto;}
-    .log-btn{width: 402px;display: block;text-align: left;line-height: 50px; margin: 0 auto 15px;color: #fff;-size: 13px;border-radius: 5px; 
-        -webkit-border-radius:5px; -moz-border-radius:5px;-ms-border-radius:5px; -o-border-radius:5px;position: relative;
+    .log-btn{width: 402px;display: block;text-align: left;line-height: 50px; margin: 0 auto 15px;color: #fff;font-size: 16px;border-radius: 5px;font-weight:bold;
+    position: relative;
     }
     .log-btn.tw{
         background-color:#13b4e9;
