@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Login from '@/admin/Login'
 import Admin from '@/admin/admin'
 const adminArticle=resolve=>require(['@/admin/adminArticle'],resolve);
 const adminArticleList=resolve=>require(['@/admin/adminArticleList'],resolve);
+const Index=resolve=>require(['@/client/index'],resolve);
+const Blog=resolve=>require(['@/client/list'],resolve);
 
 Vue.use(Router)
 
@@ -14,8 +15,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Index',
+      component: Index
+    },
+    {
+        path:'/blog',
+        name:'Blog',
+        component:Blog
     },
     {
       path:'/login',
