@@ -3,9 +3,10 @@
         <div class="item">
             <div class="title">介绍 Turbo：比 Yarn 和 NPM 快 5 倍，可以在本地浏览器中运行</div>
             <div class="sub_title">
-                <span>发表于 2018-01-28</span>
-                <span>css</span>
+                <span class="time"><i class="icon iconfont icon-msnui-time"></i>发表于 2018-01-28</span>
+                <span class="kind"><i class="icon iconfont icon-type"></i>css</span>
             </div>
+            <div></div>
         </div>
     </div>
 </template>
@@ -15,6 +16,7 @@ export default {
 }
 </script>
 <style scoped>
+    @import '../../static/iconfont/iconfont.css';
     .article_list{
         width: 100%;
         height: 100%;
