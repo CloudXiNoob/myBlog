@@ -15,17 +15,17 @@
                    </router-link>
                 </li>
                 <li data-msg="Github">
-                    <a href="javascript:;">
+                    <a href="https://github.com/cloudxinoob">
                         <img src="../../static/images/github.png"/>
                     </a>
                 </li>
                 <li data-msg="微博">
-                    <a href="javascript:;">
+                    <a href="https://weibo.com/3044341223/profile?is_all=1">
                         <img src="../../static/images/weibo.png"/>
                     </a>
                 </li>
                 <li data-msg="知乎">
-                    <a href="javascript:;">
+                    <a href="https://www.zhihu.com/people/zxrainhyyibezi">
                         <img src="../../static/images/zhihu.png"/>
                     </a>
                 </li>
