@@ -19,14 +19,17 @@
             <div class="tags">CSS</div>
             <div class="triangle"></div>
         </article>
+        <nav-footer></nav-footer>
     </div>
 </template>
 <script>
 import NavHeader from '../components/Header.vue';
+import NavFooter from '../components/footer.vue';
 export default {
     name:'Blog',
     components:{
-        NavHeader
+        NavHeader,
+        NavFooter
     }
 }
 </script>
@@ -36,6 +39,7 @@ export default {
         width: 100%;
         height: 100%;
         background: #fff;
+        padding-bottom: 60px;
     }
     .item{
         position: relative;

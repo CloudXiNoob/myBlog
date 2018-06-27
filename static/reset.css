@@ -2,7 +2,7 @@
  * @Author: sobrown 
  * @Date: 2017-12-13 16:00:53 
  * @Last Modified by: sobrown
- * @Last Modified time: 2018-06-26 14:04:24
+ * @Last Modified time: 2018-06-27 10:46:49
  */
 
  html,
@@ -178,6 +178,10 @@
  select {
      vertical-align: middle;
  }
- html body{
+ html {
      height: 100%;
+ }
+body{
+     position: relative;
+     min-height: 100%;
  }
