@@ -6,7 +6,9 @@ const adminArticle=resolve=>require(['@/admin/adminArticle'],resolve);
 const adminArticleList=resolve=>require(['@/admin/adminArticleList'],resolve);
 const Index=resolve=>require(['@/client/index'],resolve);
 const Blog=resolve=>require(['@/client/list'],resolve);
-
+const Resume=resolve=>require(['@/client/resume'],resolve);
+const Picture=resolve=>require(['@/client/picture'],resolve);
+const About=resolve=>require(['@/client/about'],resolve);
 Vue.use(Router)
 
 export default new Router({
@@ -19,9 +21,24 @@ export default new Router({
       component: Index
     },
     {
-        path:'/blog',
-        name:'Blog',
-        component:Blog
+      path:'/blog',
+      name:'Blog',
+      component:Blog
+    },
+    {
+      path:'/resume',
+      name:'Resume',
+      component:Resume
+    },
+    {
+      path:'/picture',
+      name:'Picture',
+      component:Picture
+    },
+    {
+      path:'/about',
+      name:'About',
+      component:About
     },
     {
       path:'/login',

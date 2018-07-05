@@ -3,16 +3,16 @@
         <div class="wrapper">
             <ul class="tab">
                 <li>
-                    <a href="javascript:;">首页</a>
+                    <router-link :to="{path:'/blog'}">首页</router-link>
                 </li>
                 <li>
-                    <a href="javascript:;">简历</a>
+                    <router-link :to="{path:'/resume'}">简历</router-link>
                 </li>
                 <li>
-                    <a href="javascript:;">照片</a>
+                    <router-link :to="{path:'/picture'}">照片</router-link>
                 </li>
                 <li>
-                    <a href="javascript:;">关于</a>
+                    <router-link :to="{path:'/about'}">关于</router-link>
                 </li>
             </ul>
         </div>
