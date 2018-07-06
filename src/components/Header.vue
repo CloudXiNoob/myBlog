@@ -3,16 +3,16 @@
         <div class="wrapper">
             <ul class="tab">
                 <li>
-                    <router-link :to="{path:'/blog'}">首页</router-link>
+                    <router-link :to="{path:'/blog'}" active-class="bottom-nav-active">首页</router-link>
                 </li>
                 <li>
-                    <router-link :to="{path:'/resume'}">简历</router-link>
+                    <router-link :to="{path:'/resume'}" active-class="bottom-nav-active">简历</router-link>
                 </li>
                 <li>
-                    <router-link :to="{path:'/picture'}">照片</router-link>
+                    <router-link :to="{path:'/picture'}" active-class="bottom-nav-active">照片</router-link>
                 </li>
                 <li>
-                    <router-link :to="{path:'/about'}">关于</router-link>
+                    <router-link :to="{path:'/about'}" active-class="bottom-nav-active">关于</router-link>
                 </li>
             </ul>
         </div>
@@ -60,6 +60,9 @@ export default {
         padding: 0 17px;
     }
     .tab li a:hover{
+        background:#96e1fc;
+    }
+     .bottom-nav-active{
         background:#96e1fc;
     }
     

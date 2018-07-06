@@ -10,7 +10,7 @@
             <hr/>
             <ul>
                 <li data-msg="博客">
-                   <router-link to="/blog">
+                   <router-link to="/blog" >
                         <img src="../../static/images/blog.png"/>
                    </router-link>
                 </li>
@@ -96,12 +96,13 @@ export default {
         height:100%;
     }
     ul li:hover:after{
-    content: attr(data-msg);
-    font-size: 12px;
-    width:200%;
-    line-height:30px;
-    text-align:center;
-}
+        content: attr(data-msg);
+        font-size: 12px;
+        width:200%;
+        line-height:30px;
+        text-align:center;
+    }
+   
 </style>
 
 
