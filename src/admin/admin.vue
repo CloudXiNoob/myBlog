@@ -26,7 +26,7 @@
                 </el-menu-item>
                 <el-menu-item index="/admin/adminArticle">
                     <i class="el-icon-setting"></i>
-                    <span slot="title">新建文章</span>
+                    <span   ="title">新建文章</span>
                 </el-menu-item>
             </el-menu>
             <el-col :span="24" class="row-bg">

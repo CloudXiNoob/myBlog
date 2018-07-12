@@ -1,6 +1,7 @@
 <template lang="html">
     <div>
         <nav-header></nav-header>
+        <div></div>
         <nav-footer></nav-footer>
     </div>
 </template>
