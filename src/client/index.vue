@@ -5,7 +5,7 @@
                 <img src='../../static/images/avatar.jpg'>
             </a>
             <div class="profile__desc">
-                <span>不想成为老鹰的菜鸟不是好菜鸟!</span>
+                <span>不想成为鹰的菜鸟不是好菜鸟!</span>
             </div>
             <hr/>
             <ul>

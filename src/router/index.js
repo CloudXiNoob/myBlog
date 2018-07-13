@@ -4,6 +4,7 @@ import Login from '@/admin/Login'
 import Admin from '@/admin/admin'
 const adminArticle=resolve=>require(['@/admin/adminArticle'],resolve);
 const adminArticleList=resolve=>require(['@/admin/adminArticleList'],resolve);
+const uploadPicture=resolve=>require(['@/admin/uploadPicture'],resolve);
 const Index=resolve=>require(['@/client/index'],resolve);
 const Blog=resolve=>require(['@/client/list'],resolve);
 const Resume=resolve=>require(['@/client/resume'],resolve);
@@ -53,6 +54,7 @@ export default new Router({
       children:[
         {path:'adminArticle',name:'adminArticle',component:adminArticle},
         {path:'adminArticleList',name:'adminArticleList',component:adminArticleList},
+        {path:'uploadPicture',name:'uploadPicture',component:uploadPicture}
       ]
     }
   ]

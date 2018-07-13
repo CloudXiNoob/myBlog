@@ -2,22 +2,15 @@
     <div>
         <el-row>
             <el-menu theme="dark" :default-active="$router.path" class="el-menu" mode="horizontal" :router="false">
-                <el-menu-item index="1">管理系统</el-menu-item>
-                <el-submenu index="2">
-                    <template slot="title">我的工作台</template>
-                    <el-menu-item index="2-1">选项1</el-menu-item>
-                    <el-menu-item index="2-2">选项2</el-menu-item>   
-                    <el-menu-item index="2-3">选项3</el-menu-item>   
-                </el-submenu>
-                <el-menu-item index="3"><a href="https://www.baidu.com" target="_blank">baidu</a></el-menu-item>
-            </el-menu>
-            <el-breadcrumb separator="/" style="padding:20px 20px 20px 20px;">
-                <el-breadcrumb-item :to="{path:'/admin'}">首页</el-breadcrumb-item>
-                <el-breadcrumb-item>首页</el-breadcrumb-item>
-                <el-breadcrumb-item>首页</el-breadcrumb-item>
-                <el-breadcrumb-item>首页</el-breadcrumb-item>
-            </el-breadcrumb>
-        </el-row>
+                    <el-menu-item index="1">博客管理系统</el-menu-item>
+                    <el-submenu index="2">
+                        <template slot="title">搜索引擎</template>
+                        <el-menu-item index="2-1"><a href="https://www.baidu.com" target="_blank">百度</a></el-menu-item>
+                        <el-menu-item index="2-1"><a href="https://www.google.com/" target="_blank">谷歌</a></el-menu-item>
+                        <el-menu-item index="2-1"><a href="https://cn.bing.com/" target="_blank">必应</a></el-menu-item>
+                    </el-submenu>
+                </el-menu>
+        </el-row>   
         <el-row type="flex">
             <el-menu default-active="$router.index" :router="true" mode="vertical" :collapse="isCollapse">
                 <el-menu-item index="/admin/adminArticleList">
@@ -26,10 +19,14 @@
                 </el-menu-item>
                 <el-menu-item index="/admin/adminArticle">
                     <i class="el-icon-setting"></i>
-                    <span   ="title">新建文章</span>
+                    <span slot="title">新建文章</span>
+                </el-menu-item>
+                <el-menu-item index="/admin/uploadPicture">
+                    <i class="el-icon-picture"></i>
+                    <span slot="title">图片上传</span>
                 </el-menu-item>
             </el-menu>
-            <el-col :span="24" class="row-bg">
+            <el-col :span="24" class="row-bg">  
                 <transition name="fade" mode="out-in">
                     <router-view></router-view>
                 </transition>
@@ -70,9 +67,9 @@ export default {
         text-decoration:none;
     }
     .row-bg{
-        background-color: #99a9bf;
+        background-color: #d3dce6;
         width: 100%;
-        height: 837px;
+        height: 100%;
         border-radius: 2px;
     }
 </style>

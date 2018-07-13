@@ -180,9 +180,9 @@ export default {
         padding-top: 20px;
     }
     .row-bg{
-        background-color: #99a9bf;
+        background-color: #d3dce6;
         width: 100%;
-        height: 837px;
+        height: auto;
         border-radius: 2px;
     }
     .admin-container{

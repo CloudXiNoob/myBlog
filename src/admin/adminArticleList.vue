@@ -16,7 +16,8 @@
         </el-table>
     </div>
 </template>
-<script>
+<script>            
 export default {
+
 }
 </script>

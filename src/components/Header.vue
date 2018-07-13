@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-        <p>不想做老鹰的菜鸟不是好菜鸟</p>
+        <p>不想做鹰的菜鸟不是好菜鸟</p>
     </div>
 </template>
 <script>
@@ -57,7 +57,11 @@ export default {
         color: #fff;
         height:48px;
         font-size: 18px;
+        margin-left: 20px;
         padding: 0 17px;
+    }
+    .tab li:nth-child(1){
+        margin-left: 0;
     }
     .tab li a:hover{
         background:#96e1fc;
