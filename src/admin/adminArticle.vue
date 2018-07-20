@@ -3,10 +3,10 @@
         <div class="admin-container">
             <mavon-editor class="set" v-model="value" @change="getContent"></mavon-editor>
             <div class="footer">
-                <el-popover placement="top" ref="popover5" width="160">
+                <el-popover placement="top" ref="popover5" width="160" v-model="visible2">
                     <p>确定提交吗？</p>
                     <div style="text-align:right;margi;0;">
-                        <el-button type="text" size="mini">取消</el-button>
+                        <el-button type="text" size="mini" @click="visible2=false">取消</el-button>
                         <el-button type="primary" size="mini" @click="subArticle">确定</el-button>
                     </div>
                 </el-popover>
