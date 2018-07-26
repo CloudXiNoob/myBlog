@@ -50,7 +50,7 @@ export default new Router({
       path:'/admin',
       name:'Admin',
       component:Admin,
-      redirect: {name:adminArticle},
+      // redirect: {name:adminArticle},
       children:[
         {path:'adminArticle',name:'adminArticle',component:adminArticle},
         {path:'adminArticleList',name:'adminArticleList',component:adminArticleList},

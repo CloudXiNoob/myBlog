@@ -1,6 +1,17 @@
 <template lang="html">
     <div>
         <div class="admin-container">
+            <el-form ref="form" :model="form" label-width="80px">   
+                <el-form-item label="文章标题">
+                    <el-input v-model="form.title" placeholder="请输入标题"></el-input>
+                </el-form-item>  
+                <el-form-item label="文章描述">
+                    <el-input v-model="form.desc" auto-complete="off" placeholder="请输入文章描述"></el-input>
+                </el-form-item>
+                <el-form-item label="文章类型">
+                    <el-input v-model="form.tags" placeholder="请输入文章类型"></el-input>
+                </el-form-item>
+            </el-form>
             <mavon-editor class="set" v-model="value" @change="getContent"></mavon-editor>
             <div class="footer">
                 <el-popover placement="top" ref="popover5" width="160" v-model="visible2">
@@ -11,28 +22,8 @@
                     </div>
                 </el-popover>
                 <el-button v-popover:popover5 class="submit">发布</el-button>
-                <div class="left">
-                    <el-button type="button" @click="dialogTableVisible=true">填写信息</el-button>
-                </div>
             </div>
         </div>
-        <el-dialog title="文章信息" :visible.sync="dialogTableVisible">
-            <el-form ref="form" :model="form" label-width="80px">   
-                <el-form-item label="文章标题">
-                    <el-input v-model="form.title" placeholder="请输入标题"></el-input>
-                </el-form-item>  
-                <el-form-item label="文章描述">
-                    <el-input v-model="form.describtion" auto-complete="off" placeholder="请输入文章描述"></el-input>
-                </el-form-item>
-                <el-form-item label="文章类型">
-                    <el-input v-model="form.tags" placeholder="请输入文章类型"></el-input>
-                </el-form-item>
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogTableVisible=false">取消</el-button>
-                <el-button type="primary" @click="dialogTableVisible=false">确定</el-button>
-            </div>
-        </el-dialog>
     </div>
 </template>
 
@@ -45,11 +36,10 @@ export default {
             tags:[],
             content:'',
             visible2:false,
-            dialogTableVisible:false,
             form:{
                 title:'',
                 tags:'',
-                describtion:'',
+                desc:'',
             },
         }
     },  
@@ -57,7 +47,6 @@ export default {
         getContent(value,render){
             this.content=render
         },
-
         subArticle(){
            if(!this.content){
                 this.$message.error("请输入内容")  
@@ -65,18 +54,17 @@ export default {
             else if(!this.form.title){
                 this.$message.error('请输入标题')
             }
-            else if(!this.form.describtion){    
+            else if(!this.form.desc){    
                 this.$message.error("请输入文章描述")  
             }
             else{
-                axios.post("/api/articleSub",{
+                axios.post("http://localhost:3000/api/article/create",{
                     title:this.form.title,
                     tag:this.form.tags,
-                    describtion:this.form.describtion,
+                    desc:this.form.desc,
                     content:this.content
-                }).then((response)=>{
-                    let res=response.data
-                    if(res.status=='0'){
+                }).then((res)=>{
+                    if(res.data.success === true){
                         this.$message({
                             type:'success',
                             message:'文章已发布',
@@ -119,13 +107,13 @@ export default {
         height: auto;
         border-radius: 2px;
     }
-    .admin-container{
+    /* .admin-container{
         flex: 1;
         overflow-y:scroll;
         padding: 20px
-    }
+    } */
     .set{
-        height: 740px;
+        height: 620px;
     }
     .submit{
         float: right;
