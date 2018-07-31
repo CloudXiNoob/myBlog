@@ -1,21 +1,30 @@
 <template lang="html">
-    <div class="admin-container">
-       <mavon-editor class="set" v-model="value" @change="getContent"></mavon-editor>
-       <div class="footer">
-           <el-popover placement="top" ref="popover5" width="160" >
-               <p>确定提交吗？</p>
-               <div style="text-align:right; margin:0;">
-                   <el-button type="text" size="mini">取消</el-button>
-                   <el-button type="primary" size="mini">确定</el-button>
-               </div>
-           </el-popover>
-           <el-button v-popover:popover5 class="submit">修改</el-button>
-           <div class="left">
-               <el-button>修改信息</el-button>
-               <el-button>修改分类</el-button>
-           </div>
-       </div>
-    </div>
+   <div>
+        <div class="admin-container">
+            <el-form ref="form" :model="form" label-width="80px">   
+                <el-form-item label="文章标题">
+                    <el-input v-model="form.title" placeholder="请输入标题"></el-input>
+                </el-form-item>  
+                <el-form-item label="文章描述">
+                    <el-input v-model="form.desc" auto-complete="off" placeholder="请输入文章描述"></el-input>
+                </el-form-item>
+                <el-form-item label="文章类型">
+                    <el-input v-model="form.tags" placeholder="请输入文章类型"></el-input>
+                </el-form-item>
+            </el-form>
+            <mavon-editor class="set" v-model="value" @change="getContent"></mavon-editor>
+            <div class="footer">
+                <el-popover placement="top" ref="popover5" width="160" v-model="visible2">
+                    <p>确定提交吗？</p>
+                    <div style="text-align:right;margi;0;">
+                        <el-button type="text" size="mini" @click="visible2=false">取消</el-button>
+                        <el-button type="primary" size="mini" @click="modifyArticle">确定</el-button>
+                    </div>
+                </el-popover>
+                <el-button v-popover:popover5 class="submit">发布</el-button>
+            </div>
+        </div>
+   </div>
 </template>
 
 <script>
@@ -25,7 +34,12 @@ export default {
         return{ 
             value:'',
             content:'',
-            visible2:false
+            visible2:false,
+            form:{
+                title:'',
+                desc:'',
+                tags:''
+            }
         }
     },
     mounted(){
@@ -33,19 +47,18 @@ export default {
     },
     methods:{
         getContent(value,render){
-            this.content=render
+            this.content=render 
         },
         getValue(){
-            let articleId=this.$route.query.articleId
-            let param={
-                articleId:articleId
-            }
-            axios.get("/api/articleDetial",{
-                params:param
-            }).then((result)=>{
-                let  res=result.data
-                if(res.status=="0"){
-                    this.value=res.result.content
+            let articleId=this.$route.query.id
+            axios.post("http://localhost:3000/api/article/change/" + articleId ,{
+            }).then((res)=>{
+                if(res.data.success === true){
+                    this.value= res.data.article.content;
+                    this.form.title = res.data.article.title;
+                    this.form.desc = res.data.article.desc;
+                    this.form.tags = res.data.article.tag;
+                    
                 }else{
                     this.value=''
                 }
@@ -72,4 +85,47 @@ export default {
     }
 }
 </script>
+
+<style lang="css">
+    #tags .el-tap+.el-tag{
+        margin-left: 10px;
+    }
+    .tags .button-new-tag,.input-new-tag{
+        margin-left: 10px;
+        height: 24px;
+        line-height: 22px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .tags .input-new-tag{
+        width: 78px;
+        margin-left: 10px;
+        vertical-align: bottom;
+    }
+    .footer{
+        overflow:hidden;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+    .row-bg{
+        background-color: #d3dce6;
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+    }
+    /* .admin-container{
+        flex: 1;
+        overflow-y:scroll;
+        padding: 20px
+    } */
+    .set{
+        height: 620px;
+    }
+    .submit{
+        float: right;
+    }
+    .left{
+        float: left;
+    }
+</style>
 

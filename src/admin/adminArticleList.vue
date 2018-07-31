@@ -8,24 +8,24 @@
           <el-table-column label="发布时间" prop="createTime"  width="180" align="center"></el-table-column>
           <el-table-column label="内容" prop="content" align="center"></el-table-column>
           <el-table-column label="操作"  width="210" align="center">
-              <template slot-scope="scope">
-                  <el-button type="info" size="small" @click="handle(scope.$index,scope.row)" >查看/编辑</el-button>
-                  <el-button type="danner" size="small" @click="handleDelete(scope.$index,scope.row)">删除</el-button>
-              </template>
+            <template slot-scope="scope">
+                <el-button type="info" size="small" @click="handle(scope.$index,scope.row)">查看/编辑</el-button>
+                <el-button type="danner" size="small" @click="handleDelete(scope.$index,scope.row)">删除</el-button>
+            </template>
           </el-table-column>
         </el-table>
         <el-pagination layout="prev, pager, next"  :total="10" background></el-pagination>
     </div>
 </template>
 <script>            
-import axios from 'axios';
+import axios from 'axios'
 export default {
     data(){
         return {
             pageSize:8,
             page:1,
             tableData:[],
-            loading:true
+            loading:true,
         }
     },
     methods: {
@@ -67,7 +67,7 @@ export default {
         },
         handle (index) {
             let articleId = this.tableData[index]._id;
-            this.$router.push({path:'/admin/change',query:{articleId:articleId }})
+            this.$router.push({path:'/admin/change',query:{id:articleId }})
         }
     },
     mounted () {

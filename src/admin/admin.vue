@@ -1,21 +1,27 @@
 <template lang="html">
     <div>
         <el-container>
-            <el-header>
-                <el-row>
-                    <el-menu theme="dark" :default-active="$router.path" class="el-menu" mode="horizontal" :router="false">
-                            <el-menu-item index="1">博客管理系统</el-menu-item>
-                            <el-submenu index="2">
-                                <template slot="title">搜索引擎</template>
-                                <el-menu-item index="2-1"><a href="https://www.baidu.com" target="_blank">百度</a></el-menu-item>
-                                <el-menu-item index="2-1"><a href="https://www.google.com/" target="_blank">谷歌</a></el-menu-item>
-                                <el-menu-item index="2-1"><a href="https://cn.bing.com/" target="_blank">必应</a></el-menu-item>
-                            </el-submenu>
-                        </el-menu>
-                </el-row>   
+            <el-header height="80px">
+                <!-- <el-menu theme="dark" :default-active="$router.path" class="el-menu" mode="horizontal" :router="false">
+                        <el-menu-item index="1">博客管理系统</el-menu-item>
+                </el-menu> -->
+                <div>
+                    <div>
+                         <span class="title">博客管理系统</span>
+                    </div>
+                    <div style="float:right;">
+                        <el-dropdown>
+                            <i class="el-icon-setting" style="margin-right: 15px"></i>
+                            <el-dropdown-menu slot="dropdown" style="margin-top:-20px;">
+                                <el-dropdown-item>退出</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                        <span>王小虎</span>
+                    </div>
+                </div>
             </el-header>
             <el-container>
-                <el-aside width="180px">
+                <el-aside width="180px"  style="background-color:#B3C0D1">
                     <el-row>
                         <el-col>
                             <el-menu default-active="$router.index" :router="true" mode="vertical" >
@@ -68,8 +74,18 @@ export default {
 }
 </script>
 <style lang="css">
+   
     #app{
         margin-top: 0px;
+    }
+
+    .title{
+        float: left;
+    }
+
+    .el-header{
+        background-color: #B3C0D1;
+        line-height: 80px;
     }
     a{
         text-decoration:none;
