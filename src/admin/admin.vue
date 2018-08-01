@@ -2,50 +2,46 @@
     <div>
         <el-container>
             <el-header height="80px">
-                <!-- <el-menu theme="dark" :default-active="$router.path" class="el-menu" mode="horizontal" :router="false">
-                        <el-menu-item index="1">博客管理系统</el-menu-item>
-                </el-menu> -->
                 <div>
                     <div>
                          <span class="title">博客管理系统</span>
                     </div>
                     <div style="float:right;">
-                        <el-dropdown>
+                        <el-dropdown @command="getOut">
                             <i class="el-icon-setting" style="margin-right: 15px"></i>
-                            <el-dropdown-menu slot="dropdown" style="margin-top:-20px;">
-                                <el-dropdown-item>退出</el-dropdown-item>
+                            <el-dropdown-menu slot="dropdown" style="margin-top:-20px;" >
+                                <el-dropdown-item >退出</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
-                        <span>王小虎</span>
+                        <span>{{name}}</span>
                     </div>
                 </div>
             </el-header>
             <el-container>
-                <el-aside width="180px"  style="background-color:#B3C0D1">
-                    <el-row>
-                        <el-col>
-                            <el-menu default-active="$router.index" :router="true" mode="vertical" >
-                                <el-menu-item index="/admin/adminArticleList">
-                                    <i class="el-icon-menu"></i>
-                                    <span slot="title">文章列表</span>
-                                </el-menu-item>
-                                <el-menu-item index="/admin/adminArticle">
-                                    <i class="el-icon-setting"></i>
-                                    <span slot="title">新建文章</span>
-                                </el-menu-item>
-                                <el-menu-item index="/admin/uploadPicture">
-                                    <i class="el-icon-picture"></i>
-                                    <span slot="title">图片上传</span>
-                                </el-menu-item>
-                            </el-menu>
-                        </el-col>
-                    </el-row>
+                <el-aside width="180px">
+                    <el-menu default-active="$router.index" :router="true" mode="vertical" >
+                        <el-menu-item index="/admin/adminArticleList">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">文章列表</span>
+                        </el-menu-item>
+                        <el-menu-item index="/admin/adminArticle">
+                            <i class="el-icon-setting"></i>
+                            <span slot="title">新建文章</span>
+                        </el-menu-item>
+                        <el-menu-item index="/admin/uploadPicture">
+                            <i class="el-icon-picture"></i>
+                            <span slot="title">图片上传</span>
+                        </el-menu-item>
+                    </el-menu>
                 </el-aside>
-                <el-main>
-                     <transition name="fade" mode="out-in">
-                        <router-view></router-view>
-                    </transition>
-                </el-main>
+                <el-container>
+                     <el-main>  
+                        <transition name="fade" mode="out-in">
+                            <router-view></router-view>
+                        </transition>
+                    </el-main>
+                    <el-footer>Copyright© 2017-2018 by cloudxi</el-footer>
+                </el-container>
             </el-container>
         </el-container>
     </div>
@@ -54,6 +50,7 @@
 export default {
     data(){
         return {
+            name:''
         }
     },
     watch:{
@@ -65,10 +62,16 @@ export default {
     methods:{
         checkLogin(){
            let token= localStorage.getItem('token');
-           console.log(token);
+           let nickName = localStorage.getItem('name');
+           this.name = nickName;
            if(token===null){
                this.$router.push('/login');
            }
+        },
+        getOut(){
+            console.log(1);
+            this.$router.push('/login');
+            localStorage.removeItem('token');
         }
     }
 }
@@ -87,6 +90,9 @@ export default {
         background-color: #B3C0D1;
         line-height: 80px;
     }
+    .el-aside{
+        background-color:#B3C0D1;
+    }
     a{
         text-decoration:none;
     }
@@ -99,6 +105,17 @@ export default {
     body{
         margin: 0;
         padding: 0;
+    }
+    .el-footer{
+        /* position: fixed;
+        bottom: 0; */
+        width: 100%;
+        text-align: center;
+        line-height: 60px;
+        background-color:#B3C0D1;
+    }
+    .el-main {
+       height: calc(100% - 140px);
     }
 </style>
 

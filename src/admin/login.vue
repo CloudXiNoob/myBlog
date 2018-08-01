@@ -52,6 +52,7 @@ export default {
                 let res=result.data
                 if(res.success === true){
                     localStorage.setItem('token',res.token)
+                    localStorage.setItem('name',res.name)
                     this.isLoading=false;
                     this.$router.push('/admin');
                 }else if(res.success === false){
