@@ -6,13 +6,13 @@
     </div>
 </template>
 <script>
-import NavHeader from '../components/Header.vue';
-import NavFooter from '../components/footer.vue';
+import NavHeader from "../components/Header.vue";
+import NavFooter from "../components/footer.vue";
 export default {
-    name:'About',
-    components:{
-        NavHeader,
-        NavFooter
-    }
-}
+  name: "About",
+  components: {
+    NavHeader,
+    NavFooter
+  }
+};
 </script>

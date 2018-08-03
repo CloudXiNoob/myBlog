@@ -28,53 +28,53 @@
     </div>
 </template>
 <script>
-import NavHeader from '../components/Header.vue';
-import NavFooter from '../components/footer.vue';
+import NavHeader from "../components/Header.vue";
+import NavFooter from "../components/footer.vue";
 export default {
-    name:'Picture',
-    components:{
-        NavHeader,
-        NavFooter
-    }
-}
+  name: "Picture",
+  components: {
+    NavHeader,
+    NavFooter
+  }
+};
 </script>
 <style scoped>
-    .image_list{
-        width: 1200px;
-        margin:auto;
-        background: #fff;
-    }
-    .item{
-        position: relative;
-        float: left;
-        width: 30%;
-        height: 200px;
-        margin-left: 3%;
-        margin-bottom: 20px;
-        border-radius: 6px;
-        border: 1px solid #333;
-    }
-    .item img{
-        width: 100%;
-        height: 200px;
-        border-radius: 6px;
-    }
-    .item .float_player{
-        display: none;
-        box-sizing: border-box;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height:200px;
-        text-align: left;
-        padding: 20px;
-        background: #333;
-        opacity: 0.8;
-        color: #fff;
-        font-size: 14px;
-    }
-    .item:hover .float_player{
-        display: block;
-    }
+.image_list {
+  width: 1200px;
+  margin: auto;
+  background: #fff;
+}
+.item {
+  position: relative;
+  float: left;
+  width: 30%;
+  height: 200px;
+  margin-left: 3%;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+.item img {
+  width: 100%;
+  height: 200px;
+  border-radius: 6px;
+}
+.item .float_player {
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  text-align: left;
+  padding: 20px;
+  background: #333;
+  opacity: 0.8;
+  color: #fff;
+  font-size: 14px;
+}
+.item:hover .float_player {
+  display: block;
+}
 </style>

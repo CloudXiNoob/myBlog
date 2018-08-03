@@ -6,19 +6,19 @@
 	</div>
 </template>
 <script>
-	import NavHeader from '../components/Header.vue';
-	import NavFooter from '../components/footer.vue';
-	export default{
-		name:'Resume',
-		components:{
-			NavHeader,
-			NavFooter
-		}
-	}
+import NavHeader from "../components/Header.vue";
+import NavFooter from "../components/footer.vue";
+export default {
+  name: "Resume",
+  components: {
+    NavHeader,
+    NavFooter
+  }
+};
 </script>
 <style scoped>
-	.resume{
-		width: 100%;
-		height: 100%;
-	}
+.resume {
+  width: 100%;
+  height: 100%;
+}
 </style>
