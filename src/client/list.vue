@@ -9,7 +9,7 @@
             <div class="abstract">
                {{item.desc}}
             </div>
-            <div class="read_button">
+            <div class="read_button" @click="readAll">
                 <a href="javascript:;">阅读全文 »</a>
             </div>
             <div class="tags">{{item.tag}}</div>
@@ -29,7 +29,9 @@ export default {
       listData: [],
       loading: false,
       allPage: "",
-      allCount: 0
+      allCount: 0,
+      page:1,
+      pageSize:10
     };
   },
   components: {
@@ -44,7 +46,7 @@ export default {
         limit: this.pageSize
       };
       axios
-        .post("http://localhost:3000/api/article/getAll", param)
+        .post("http://localhost:3000/api/article/getPublish", param)
         .then(res => {
           if (res.data.success === true) {
             this.listData = res.data.articleArr;
@@ -53,6 +55,9 @@ export default {
             this.allCount = res.data.allNum;
           }
         });
+    },
+    readAll() {
+      this.$router.push("/detail");
     }
   },
   mounted() {
@@ -98,6 +103,9 @@ export default {
 .abstract {
   margin-top: 30px;
   text-align: left;
+  letter-spacing: 2px;
+  line-height: 26px;
+  text-indent: 32px;
 }
 .read_button {
   margin-top: 50px;

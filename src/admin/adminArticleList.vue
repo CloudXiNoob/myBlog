@@ -1,12 +1,18 @@
 <template lang="html">
     <div>
-        <el-table border style="width:100%;" :default-sort="{prop:'createTime',order:'descending'}" :data="tableData" v-loading="loading">
+        <el-table border style="width:100%" :default-sort="{prop:'createTime',order:'descending'}" :data="tableData" v-loading="loading">
           <el-table-column type="index" width="150" align="center"></el-table-column>
-          <el-table-column label="标题" prop="title"  width="90" align="center"></el-table-column>
-          <el-table-column label="描述" prop="desc"  width="150" align="center"></el-table-column>
-          <el-table-column label="标签" prop="tag"  width="70" align="center"></el-table-column>
+          <el-table-column label="标题" prop="title"  width="180" align="center"></el-table-column>
+          <el-table-column label="描述" prop="desc"  width="260" align="center" :show-overflow-tooltip='true' ></el-table-column>
+          <el-table-column label="标签" prop="tag"  width="100" align="center"></el-table-column>
           <el-table-column label="发布时间" prop="createTime"  width="180" align="center"></el-table-column>
-          <el-table-column label="内容" prop="content" align="center"></el-table-column>    
+          <el-table-column label="内容" prop="content" align="center" :show-overflow-tooltip='true' ></el-table-column> 
+          <el-table-column label="状态"  align="center"  prop="publish" :filters="[{text:'publish',value:'publish'},{text:'draft',value:'draft'}]"
+          :filter-method="filterPublish" filter-placement="bottom-end">
+            <template slot-scope="scope">
+              <el-tag :type="scope.row.publish === true ? 'primary':'danger'" disable-transitions>{{scope.row.publish === true ? 'publish':'draft'}}</el-tag>
+            </template>
+          </el-table-column>    
           <el-table-column label="操作"  width="210" align="center">
             <template slot-scope="scope">
                 <el-button type="info" size="small" @click="handle(scope.$index,scope.row)">查看/编辑</el-button>
@@ -83,6 +89,9 @@ export default {
       let currentPage = val;
       this.page = currentPage;
       this.init();
+    },
+    filterPublish(value, row) {
+      return row.publish === value;
     }
   },
   mounted() {
@@ -93,8 +102,9 @@ export default {
 
 <style scoped>
 .el-pagination {
-  margin-top: 20px;
   float: right;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 </style>
 

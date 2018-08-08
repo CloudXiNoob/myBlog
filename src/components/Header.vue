@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="header fixed"  >
+    <div class="header">
         <div class="wrapper">
             <ul class="tab">
                 <li>
@@ -13,6 +13,9 @@
                 </li>
                 <li>
                     <router-link :to="{path:'/about'}" active-class="bottom-nav-active">关于</router-link>
+                </li>
+                <li>
+                    <router-link :to="{path:'/login'}" active-class="bottom-nav-active">管理</router-link>
                 </li>
             </ul>
         </div>
