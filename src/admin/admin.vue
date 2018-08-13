@@ -5,15 +5,15 @@
                 <el-menu default-active="$router.index" :router="true" mode="vertical" 
                 :show-timeout="200" background-color="#304156" text-color="#bfcbd9" active-text-color="#409EFF">
                       <el-menu-item index="/admin/welcome">
-                          <i class="el-icon-menu"></i>
-                          <span slot="title">博客首页</span>
+                          <i class="el-icon-setting"></i>
+                          <span slot="title">系统首页</span>
                       </el-menu-item>
                       <el-menu-item index="/admin/adminArticleList">
                           <i class="el-icon-menu"></i>
                           <span slot="title">文章列表</span>
                       </el-menu-item>
                       <el-menu-item index="/admin/adminArticle">
-                          <i class="el-icon-setting"></i>
+                          <i class="el-icon-edit"></i>
                           <span slot="title">新建文章</span>
                       </el-menu-item>
                       <el-menu-item index="/admin/uploadPicture">
