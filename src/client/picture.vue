@@ -66,13 +66,12 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 200px;
+  height: 50px;
   text-align: left;
   padding: 20px;
-  background: #333;
-  opacity: 0.8;
   color: #fff;
   font-size: 14px;
+  background: linear-gradient(#333, #666);
 }
 .item:hover .float_player {
   display: block;
