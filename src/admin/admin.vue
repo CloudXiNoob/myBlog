@@ -61,7 +61,6 @@ export default {
     checkLogin() {
       let token = localStorage.getItem("token");
       let nickName = localStorage.getItem("name");
-      let nickName = localStorage.getItem("name");
       this.name = nickName;
       if (token === null) {
         this.$router.push("/login");
