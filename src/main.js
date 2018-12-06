@@ -11,57 +11,6 @@ import 'mavon-editor/dist/css/index.css'
 Vue.use(ElementUI);
 Vue.use(mavonEditor);
 
-// router.beforeEach(({name},from,next) => {
-//   if(localStorage.getItem('token')){
-//     if(name === 'login'){
-//       next('/');
-//     }else {
-//       next();
-//     }
-//   }else {
-//     if(name === 'login'){
-//       next();
-//     }else {
-//       next({name:'login'});
-//     }
-//   }
-// });
-
-// axios.interceptors.request.use(
-//   config => {
-//     if(localStorage.token){
-//       config.headers.Authorization = `token ${localStorage.token}`
-//     }
-//     return config;
-//   },
-//   err => {
-//     return Promise.reject(err);
-//   }
-// );
-
-// http response 拦截器
-// axios.interceptors.response.use(
-//   response => {
-//     return response;
-//   },
-//   error => {
-//     if (error.response) {
-//       console.log('axios:' + error.response.status);
-//       switch (error.response.status) {
-//         case 401:
-//           // 返回 401 清除token信息并跳转到登录页面
-//           store.commit('LOG_OUT');
-//           router.replace({
-//             path: 'login',
-//             query: {redirect: router.currentRoute.fullPath}
-//           });
-//       }
-//     }
-//     return Promise.reject(error.response.data);   // 返回接口返回的错误信息
-//   });
-
-
-
 
 Vue.config.productionTip = false
 
